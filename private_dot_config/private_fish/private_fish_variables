@@ -1,8 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export GH_HOST:github\x2ecom
-SETUVAR --export GH_TOKEN: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
-SETUVAR --export GITHUB_TOKEN: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
 SETUVAR --export GO111MODULE:on
 SETUVAR --export GOBIN:/data/data/com\x2etermux/files/home/go/bin
 SETUVAR --export --path GOPATH:/data/data/com\x2etermux/files/home/go
