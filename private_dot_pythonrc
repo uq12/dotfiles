@@ -1,0 +1,44 @@
+#!/data/data/com.termux/files/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# Файл запуска python
+
+import atexit
+import os
+import subprocess
+
+from rich import inspect
+
+try:
+    from rich import pretty
+
+    pretty.install()
+except:
+    subprocess.Popen(["pip", "install", "rich"])
+#  except ModuleNotFoundError as e:
+#  print(e)
+else:
+    from rich import print
+
+    print(dir())
+try:
+    import readline
+except ImportError:
+    print("Завершение недоступно: Модуль для чтения не доступен")
+else:
+    import rlcompleter
+
+    # Автозаполнение
+    readline.parse_and_bind("tab: complete")
+    # Путь к файлу истории в домашнем каталоге пользователя
+    # Можно использовать собственный путь
+    history_file = os.path.join(os.environ["HOME"], ".python_shell_history")
+try:
+    readline.read_history_file(history_file)
+except IOError:
+    pass
+
+atexit.register(readline.write_history_file, history_file)
+del os, history_file, readline, rlcompleter
+
+# export PYTHONSTARTUP=~/.pythonstartup

@@ -1,0 +1,54 @@
+alias .. 'cd ..'
+alias ... 'cd ../..'
+alias .... 'cd ../../..'
+alias ..... 'cd ../../../..'
+alias ...... 'cd ../../../../..'
+alias apt 'man pkg'
+alias apt-get 'man pkg'
+alias big expac\\\ -H\\\ M\\\ \\\'\\\%m\\\\t\\\%n\\\'\\\ \\\|\\\ sort\\\ -h\\\ \\\|\\\ nl
+alias c clear
+alias cat 'bat --style header --style rules --style snip --style changes --style header'
+alias cls clear
+alias dir 'dir --color=auto'
+alias egrep 'egrep --color=auto'
+alias fgrep 'fgrep --color=auto'
+alias fish_key_reader /data/data/com.termux/files/usr/bin/fish_key_reader
+alias fix termux-fix-shebang
+alias gitpkg pacman\\\ -Q\\\ \\\|\\\ grep\\\ -i\\\ \\\"\\\\-git\\\"\\\ \\\|\\\ wc\\\ -l
+alias grep 'grep --color=auto'
+alias grubup 'sudo update-grub'
+alias h history
+alias hw 'hwinfo --short'
+alias ipy ipython
+alias jctl 'journalctl -p 3 -xb'
+alias k clear
+alias l. exa\\\ -a\\\ \\\|\\\ egrep\\\ \\\'^\\\\.\\\'
+alias la 'exa -a --color=always --group-directories-first --icons'
+alias ll 'exa -l --color=always --group-directories-first --icons'
+alias ls 'exa --color=always --group-directories-first --icons'
+alias lt 'exa -aT --color=always --group-directories-first --icons'
+alias md 'mkdir -p'
+alias pi 'pip install -U'
+alias please sudo
+alias psmem 'ps auxf | sort -nr -k 4'
+alias psmem10 'ps auxf | sort -nr -k 4 | head -10'
+alias pud 'pip install -U pip setuptools wheel pip-tools'
+alias py python
+alias q exit
+alias rb ruby
+alias rd rmdir
+alias rip expac\\\ --timefmt=\\\'\\\%Y-\\\%m-\\\%d\\\ \\\%T\\\'\\\ \\\'\\\%l\\\\t\\\%n\\\ \\\%v\\\'\\\ \\\|\\\ sort\\\ \\\|\\\ tail\\\ -200\\\ \\\|\\\ nl
+alias rm 'rm -rf'
+alias rmpkg 'sudo pacman -Rdd'
+alias snano 'sudo nano'
+alias svim 'sudo vim'
+alias tarnow 'tar -acf '
+alias tb 'nc termbin.com 9999'
+alias untar 'tar -zxvf '
+alias v '$VIM'
+alias vdir 'vdir --color=auto'
+alias vh '$VIM -c ":h | only"'
+alias wget 'wget -c '
+alias xclip termux-clipboard-set
+alias xt extract
+alias xx 'chmod +x'

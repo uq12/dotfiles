@@ -1,0 +1,40 @@
+Host alsultan
+  HostName localhost
+  Port 6022
+
+Host zzz
+    HostName 193.176.78.86
+    User zzz
+    Port 22
+
+Host beget
+    HostName 193.176.78.86
+    User root
+    Port 22
+
+Host ttttttt
+    HostName 192.168.1.10
+    User root
+    Port 7654
+    IdentityFile ~/.ssh/targaryen.key
+    LogLevel INFO
+    Compression yes
+
+Host aid 
+    HostName 127.0.0.1
+    User root
+    Port 9022
+
+Host zzzz
+  HostName 62.217.180.249
+  User zzz
+  Port 22
+
+Host garuda
+  HostName 192.168.42.44
+  User zzz
+  Port 7022
+
+Host bitbucket.org
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_ed25519

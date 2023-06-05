@@ -1,0 +1,16 @@
+[edit]
+    command = "vim"
+    apply = true
+
+[git]
+    autoadd = true
+    autocommit = true
+    autopush = true
+
+[merge] 
+    command = "vimdiff"
+    
+[interpreters.py]
+    command = '/data/data/com.termux/files/usr/bin/python'
+#[interpreters.tcl]
+ #   command = "tclsh"

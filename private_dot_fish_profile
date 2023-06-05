@@ -1,0 +1,97 @@
+set VIRTUAL_ENV_DISABLE_PROMPT 1
+set -gx EDITOR "vim"
+# set -gx GH_TOKEN "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" #easy-quest
+# set -gx GH_TOKEN "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" #easy-zzz
+# set -gx GH_TOKEN "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" #uq12
+# set -Ux PYTHONSTARTUP ~/.pythonrc
+export DISPLAY=:1
+
+# fish_add_path /data/data/com.termux/files/home/.cargo/bin
+
+### Golang ###
+
+# set -Ux GOPATH ~/go
+# set -Ux GOBIN ~/go/bin
+# set -Ux GO111MODULE on
+
+if test -d ~/go/bin
+    if not contains -- ~/go/bin $PATH
+        set -p PATH ~/go/bin
+    end
+end
+
+## Полезныe aliases
+# Replace ls with exa
+# alias ls='exa --color=always --group-directories-first --icons' # предпочтительный листинг
+# alias la='exa -a --color=always --group-directories-first --icons' # all files and dirs
+# alias ll='exa -l --color=always --group-directories-first --no-permissions --octal-permissions --icons'
+# alias lt='exa -aT --color=always --group-directories-first --icons'
+# alias l.="exa -a | grep -E '^\.'" # show only dotfiles
+
+# alias up='pkgup'
+
+# Common use
+# alias tarnow='tar -acf '
+# alias untar='tar -zxvf '
+# alias wget='wget -c '
+
+# alias psmem='ps auxf | sort -nr -k 4'
+# alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+
+# alias ..='cd ..'
+# alias ...='cd ../..'
+# alias ....='cd ../../..'
+# alias .....='cd ../../../..'
+# alias ......='cd ../../../../..'
+# alias dir='dir --color=auto'
+# alias vdir='vdir --color=auto'
+# alias grep='grep --color=auto'
+# alias fgrep='fgrep --color=auto'
+# alias egrep='egrep --color=auto'
+# alias hw='hwinfo --short'                                   # Hardware Info
+# Получить сообщения об ошибках из journalctl
+# alias jctl="journalctl -p 3 -xb"
+
+## TERMUX
+## Starship prompt
+# source ("starship" init fish --print-full-init | psub)
+
+
+# alias cat='bat --style header --style snip --style changes --style header'
+
+# alias tb='nc termbin.com 9999'
+
+# alias myip="python -c 'import socket; print([l for l in ([ip for ip in socket.gethostbyname_ex(socket.gethostname())[2] if not ip.startswith(\"127.\")][:1], [[(s.connect((\"8.8.8.8\", 53)), s.getsockname()[0], s.close()) for s in [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]]) if l][0][0])'"
+
+# alias e=emacs
+# alias lg "lazygit"
+
+# alias p "pip"
+# alias pi "pip install --use-pep517"
+
+### mcfly ###
+## Light Modey
+#set -gx MCFLY_LIGHT FALSE
+
+## VIM Key Scheme
+set -gx MCFLY_KEY_SCHEME vim
+
+## Нечеткий поиск
+set -gx MCFLY_FUZZY 2
+
+## Количество результатов
+set -gx MCFLY_RESULTS 50
+
+## Вид интерфейса
+set -gx MCFLY_INTERFACE_VIEW BOTTOM
+
+## Отключить интерфейс меню
+#set -gx MCFLY_DISABLE_MENU TRUE
+
+## Сортировка результатов
+#set -gx MCFLY_RESULTS_SORT LAST_RUN
+
+
+set -gx fish_help_browser w3m -dump
+set -xg XDG_RUNTIME_DIR $TMPDIR
