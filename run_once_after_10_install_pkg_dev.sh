@@ -24,7 +24,7 @@ pkg i -y libgmp libmpc libmpfr libxml2 libxslt freetype libjpeg-turbo libpng \
 pkg i -y jython units-cur python-pillow python-cryptography recoll-python \
    python-numpy  matplotlib opencv-python python-tkinter
 
-chsh -s fh
+chsh -s fish
 #
 # curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
 # omf help
