@@ -8,11 +8,12 @@
 export EDITOR="vim"
 export GH_TOKEN="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"
 
+pkg up -y
+pkg i -y termux-api
+
 termux-change-repo
 
-pkg up -y
-
-pkg i -y termux-api openssh git wget jump direnv yq jq fish exa \
+pkg i -y openssh git wget jump direnv yq jq fish exa \
   iproute2 mcfly bat w3m
 
 pkg i -y build-essential cmake python vim gh x11-repo xorg-mkfontscale 
