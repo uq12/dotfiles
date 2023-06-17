@@ -13,7 +13,7 @@ pkg i -y termux-api
 
 termux-change-repo
 
-pkg i -y openssh git wget jump direnv yq jq fish exa \
+pkg i -y which openssh git wget jump direnv yq jq fish exa \
   iproute2 mcfly bat w3m
 
 pkg i -y build-essential cmake python vim gh x11-repo xorg-mkfontscale 
