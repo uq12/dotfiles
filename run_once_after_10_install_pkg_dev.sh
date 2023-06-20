@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/alsultan.shell/rootfs/usr/bin/bash
 #=============================================================================
 # basic.bash --- basic script files     
 # Copyright (c) 2016-2021 nvspc EasyQuest
