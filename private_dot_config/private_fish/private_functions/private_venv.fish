@@ -2,7 +2,7 @@
 #
 function venv
     python -m venv .venv $argv
-    .venv/bin/python -m pip install -U pip setuptools wheel pip-tools yapf autoflake isort coverage pylint rich bpython requests --use-pep517
+    .venv/bin/python -m pip install -U setuptools wheel yapf autoflake isort coverage pylint rich requests --use-pep517
     printf "#!/usr/bin/env bash \nsource .venv/bin/activate" >.envrc
     direnv allow
     curl https://www.toptal.com/developers/gitignore/api/python >.gitignore
