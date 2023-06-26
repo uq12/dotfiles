@@ -42,7 +42,7 @@ direnv hook fish | source
     # echo fish сейчас выходит
 # end
 source (/data/data/com.termux/files/usr/bin/starship init fish --print-full-init | psub)
-#
+##
 abbr -a -- z chezmoi
 abbr -a -- foo bar
 abbr -a -- foo bar
