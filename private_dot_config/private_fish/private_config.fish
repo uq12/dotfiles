@@ -41,6 +41,7 @@ direnv hook fish | source
 # function on_exit --on-event fish_exit
     # echo fish сейчас выходит
 # end
+source (/data/data/com.termux/files/usr/bin/starship init fish --print-full-init | psub)
 #
 abbr -a -- z chezmoi
 abbr -a -- foo bar
