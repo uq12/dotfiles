@@ -181,9 +181,9 @@
     repo = 'dbeniamine/cheat.sh-vim'
     merged = false
    
-[[custom_plugins]]
-    repo = 'vimwiki/vimwiki'
-    merged = false
+# [[custom_plugins]]
+    # repo = 'vimwiki/vimwiki'
+    # merged = false
 
 [[custom_plugins]]
   repo = 'liuchengxu/space-vim-dark'
