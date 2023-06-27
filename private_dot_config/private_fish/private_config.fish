@@ -71,3 +71,4 @@ abbr -a --set-cursor=! -- 4DIRS for\ dir\ in\ \*/\ncd\ \$dir\n!\ncd\ ..\nend
 abbr -a --position anywhere -- i install
 abbr -a --position anywhere -- bp bpython
 abbr -a -- py python
+abbr -a --set-cursor=! -- goo google\ --lang=ru\ --stop=10\ \'!\'
