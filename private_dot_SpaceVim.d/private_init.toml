@@ -115,7 +115,7 @@
     name = "lang#python"
     enabled_linters = ['python', 'pylint']
     format_on_save = true
-    enable_typeinfo = true
+    # enable_typeinfo = true
     python_file_head = [
       '#!/data/data/com.termux/files/usr/bin/env python',
       '# -*- coding: utf-8 -*-',
