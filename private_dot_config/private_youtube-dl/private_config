@@ -1,1 +1,0 @@
---no-mtime -o /sdcard/Youtube/%(title)s.%(ext)s -f "best[height<=1080]"
