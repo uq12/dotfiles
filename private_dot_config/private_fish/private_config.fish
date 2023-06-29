@@ -72,3 +72,4 @@ abbr -a --position anywhere -- i install
 abbr -a --position anywhere -- bp bpython
 abbr -a -- py python
 abbr -a --set-cursor=! -- goo google\ --lang=ru\ --stop=10\ \'!\'
+abbr -a --set-cursor=! -- gr grep\ --recursive\ --line-number\ --binary-files=without-match\ \'!\'

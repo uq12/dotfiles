@@ -69,6 +69,7 @@
 
 [[layers]]
     name = 'shell'
+    format_on_save = true
     default_position = 'bottom'
     default_height = 100
     enable_cursorword = true
@@ -114,7 +115,7 @@
 [[layers]]
     name = "lang#python"
     enabled_linters = ['python', 'pylint']
-    format_on_save = true
+    format_on_save = false
     # enable_typeinfo = true
     python_file_head = [
       '#!/data/data/com.termux/files/usr/bin/env python',
