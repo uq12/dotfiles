@@ -1,4 +1,4 @@
-#!/data/data/com.termux/files/usr/bin/bash
+#!/data/data/com.termux/files/usr/bin/fish
 
 for i in awk basename bzip2 cat chmod cp curl cut du find grep gzip \
 	head id mkdir proot rm sed tar xargs xz wget2; do
