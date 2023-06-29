@@ -208,58 +208,69 @@ if not test -d "somefolder"
   echo "somefolder does not exist"
 end
 
-Program, script, or function exit code #
+## Код выхода программы, скрипта или функции ##
 
-The idea with exit codes is that your function or entire fish script could be used by some other program that understands exit codes. In other words there could be an if statement that is going to use the exit code to determine some condition. This is a very common pattern that is used with other command line programs. Exit codes are different than return values from a function.
+Идея с кодами выхода заключается в том, что ваша функция или весь скрипт fish
+может использоваться какой-либо другой программой, которая понимает коды
+выхода. Другими словами, может быть оператор if, который будет использовать код
+выхода для определения некоторого условия. Это очень распространенный шаблон,
+который используется с другими программами командной строки. Коды выхода
+отличаются от возвращаемых функцией значений.
 
-Here’s an example of using the exit code of some git command:
+Вот пример использования кода выхода некоторой команды git:
 
 if (git pull -f --rebase)
-  echo "git pull with rebase worked without any issues"
+  echo "git pull с rebase работал без проблем"
 else
-  echo "Something went wrong that requires manual intervention, like a merge conflict"
+  echo "Что-то пошло не так, что требует ручного вмешательства, например, конфликт слияния."
 end
 
-Here’s an example of how to test whether a command executed without errors.
+Вот пример того, как проверить, выполняется ли команда без ошибок.
 
 if sudo umount /media/user/mountpoint
-  echo "Successfully unmounted /media/user/mountpoint"
+  echo "Успешно размонтирован /media/user/mountpoint"
 end
 
-You can also check the value of the $status variable. Fish stores the return value in this variable, just after a command is executed. Here’s more info on this.
+Вы также можете проверить значение переменной $status. Fish сохраняет
+возвращаемое значение в этой переменной сразу после выполнения команды. Вот
+дополнительная информация об этом.
 
-When you are writing functions you can use the following keyword to exit functions or loops: return. This may be followed by a number. So here’s what it means.
+Когда вы пишете функции, вы можете использовать следующее ключевое слово для
+выхода из функций или циклов: return. За этим может следовать число. Итак, вот
+что это значит.
 
- 1. return or return 0 - This means that the function exited normally.
- 2. return 1 or some other number > 0 - This means that the function had some problem.
+ 1. return или return 0 - Это означает, что функция завершилась нормально.
+ 2. return 1 или какой-то другой номер > 0 - Это означает, что у функции была какая-то проблема.
 
-You can exit the fish shell itself using exit. And the integer exit codes have the same meaning as above.
+Вы можете выйти из оболочки fish, используя команду exit. И целочисленные коды
+выхода имеют то же значение, что и выше.
 
-Difference between set -q and test -z #
+## Разница между set -q и test -z ##
 
-There is a subtle difference between using set -q and test -z in if statements when checking to see if a variable is empty.
+Существует тонкая разница между использованием set -q и test -z в операторах if
+при проверке того, является ли переменная пустой.
 
- 1. In the case of test -z make sure to wrap the variable in quotes, since it might just break in some edge cases if it isn’t wrapped in quotes.
- 2. However, you can use set -q to test if a variable has been set without wrapping it in quotes.
+ 1. В случае с test -z убедитесь, что переменная заключена в кавычки, так как в
+ некоторых крайних случаях она может просто сломаться, если она не заключена в
+ кавычки..
 
-Here’s an example.
+ 2. Однако вы можете использовать set -q, чтобы проверить, была ли установлена
+ переменная, не заключая ее в кавычки.
+
+Вот пример.
 
 set GIT_STATUS (git status --porcelain)
-if set -q $GIT_STATUS ; echo "No changes in repo" ; end
-if test -z "$GIT_STATUS" ; echo "No changes in repo" ; end
+if set -q $GIT_STATUS ; echo "Никаких изменений в репозитории" ; end
+if test -z "$GIT_STATUS" ; echo "Никаких изменений в репозитории" ; end
 
-Multiple conditions with operators: and, or #
+## Несколько условий с операторами: and, or ##
 
-If you want to combine multiple conditions into a single statement, then you
-can use or and and operators. Also if you want to check the inverse of a
-condition, you can use !. Here’s an example of a function that checks for 2
-arguments to be passed via the command line. Here’s the logic we will describe.
+If you want to combine multiple conditions into a single statement, then you can use or and and operators. Also if you want to check the inverse of a condition, you can use !. Here’s an example of a function that checks for 2 arguments to be passed via the command line. Here’s the logic we will describe. 
 
- 1. If both the arguments are missing, then usage information should be
-    displayed to the CLI, and perform an early return.
- 2. If either one of the arguments is missing, then display a prompt stating
-    that one of the arguments is missing, and perform an early return.
-
+ 1. If both the arguments are missing, then usage information should be displayed to the CLI, and perform an early return.
+ 
+ 2. If either one of the arguments is missing, then display a prompt stating that one of the arguments is missing, and perform an early return. 
+ 
 function requires-two-arguments
   # No arguments are passed.
   if set -q "$argv"
@@ -274,42 +285,43 @@ function requires-two-arguments
   echo "Thank you, got 1) $argv[1] and 2) $argv[2]"
 end
 
-Here are some notes on the code.
+Вот несколько замечаний по коду.
 
- 1. What does the set -q $variable function do? It returns true if $variable is
-    empty.
+ 1. What does the set -q $variable function do? It returns true if $variable is empty.
+ 
  2. Instead of set -q, if you wanted to use test function in order to determine
+
     if a variable is empty, you can use:
       □ if test -z "$variable".
       □ if test ! -n "$variable" or if not test -n "$variable".
- 3. If you wanted to replace the or check above w/ test, this is what it would
-    look like if test -z "$argv[1]"; or test -z "$argv[2]".
- 4. When you use or, and operators that you have to terminate the condition
-    expression w/ a ;.
- 5. Make sure to wrap the variable in empty quotes. If an empty string is
-    contained inside the variable, then without these quotes, the statements
-    will cause errors.
 
-Here’s another example of this to test if $variable is empty or not.
+ 3. If you wanted to replace the or check above w/ test, this is what it would look like if test -z "$argv[1]"; or test -z "$argv[2]".
+ 
+ 4. When you use or, and operators that you have to terminate the condition expression w/ a ;.
+ 
+ 5. Make sure to wrap the variable in empty quotes. If an empty string is contained inside the variable, then without these quotes, the statements will cause errors.
+ 
+
+Вот еще один пример этого, чтобы проверить, пуста ли переменная $.
 
 if test -z "$variable" ; echo "empty" ; else ; echo "non-empty" ; end
 
-Here’s another example of this to test if $variable contains a string or not.
+Вот еще один пример этого, чтобы проверить, содержит ли $variable строку или нет.
 
 if test -n "$variable" ; echo "non-empty" ; else ; echo "empty" ; end
 
-Another common operator: not #
+## Другой распространенный оператор: not ##
 
-Here’s an example of using the not operator to test whether a string contains a
-string fragment or not.
+Вот пример использования оператора not для проверки того, содержит ли строка
+фрагмент строки или нет.
 
 if not string match -q "*md" $argv[1]
-  echo "The argument passed does not end in md"
+  echo "Переданный аргумент не заканчивается на md"
 else
-  echo "The argument passed ends in md"
+  echo "Переданный аргумент заканчивается на md"
 end
 
-References #
+## Использованная литература ##
 
  1. test command
  2. set command
@@ -317,31 +329,32 @@ References #
  4. stackoverflow answer: how to check if fish variable is empty
  5. stackoverflow answer: how to put multiple conditions in fish if statement
 
-How to split strings by a delimiter #
+## Как разделить строки по разделителю ##
 
-There are situations when you want to take the output of a command, which is a
-string, and then split it by some delimiter, to use just a portion of the
-output string. An example of getting the SHA checksum of a given file. The
-command shasum <filename> produces something like df..d8 <filename>. Let’s say
-that we just wanted the first portion of this string (the SHA), knowing that
-the delimiter is two space characters, we can do the following to get just the
-checksum portion and store it in $CHECKSUM. Here’s more info on the string
-split command.
+Бывают ситуации, когда вы хотите получить вывод команды, который представляет
+собой строку, а затем разделить ее по некоторому разделителю, чтобы
+использовать только часть выходной строки. Пример получения контрольной суммы
+SHA заданного файла. Команда shasum <имя файла> выдает что-то вроде df..d8 <имя
+файла>. Допустим, нам нужна только первая часть этой строки (SHA), зная, что
+разделителем являются два пробела, мы можем сделать следующее, чтобы получить
+только часть контрольной суммы и сохранить ее в $CHECKSUM. Вот дополнительная
+информация о команде разделения строки.
 
 set CHECKSUM_ARRAY_STRING (shasum $FILENAME)
 set CHECKSUM_ARRAY (string split "  " $SOURCE_CHECKSUM_ARRAY)
 set CHECKSUM $CHECKSUM_ARRAY[1]
 
-How to perform string comparisons #
+## Как выполнять сравнение строк ##
 
-In order to test substring matches in strings you can use the string match
-command. Here is more information on the command:
+Чтобы проверить совпадения подстрок в строках, вы можете использовать команду
+сопоставления строк. Вот дополнительная информация о команде:
 
- 1. Official docs on string match.
+ 1. Официальная документация по совпадению строк.
  2. Stackoverflow answer on how to use it.
 
-Here’s an example of this in action. Note the use of -q or --quiet which does
-not echo the output of the string if the match condition was met (succeeded).
+Вот пример этого в действии. Обратите внимание на использование -q или --quiet,
+  которые не отображают вывод строки, если условие совпадения было выполнено
+  (успешно).
 
 if string match -q "*myname*" $hostname
   echo "$hostname contains myname"
@@ -349,7 +362,7 @@ else
   echo "$hostname does not contain myname"
 end
 
-Here’s an example of checking for an exact string match.
+Вот пример проверки точного совпадения строки.
 
 if test $hostname = "machine-name"
   echo "Exact match"
@@ -357,23 +370,23 @@ else
   echo "Not exact match"
 end
 
-Here’s an example of testing whether a string is empty or not.
+Вот пример проверки того, является ли строка пустой или нет.
 
 if set -q $my_variable
   echo "my_variable is empty"
 end
 
-Here’s a sophisticated example that tests to see if the packages ruby-dev and
-ruby-bundler are installed. If they are then jekyll gets run, and if not, then
-these packages are installed.
+Вот сложный пример, который проверяет, установлены ли пакеты ruby-dev и
+ruby-bundler. Если они есть, то запускается jekyll, а если нет, то эти пакеты
+устанавливаются.
 
-# Return "true" if $packageName is installed, and "false" otherwise.
-# Use it in an if statement like this:
+# Вернуть "true", если $packageName установлен, и "false" в противном случае.
+# Используйте его в операторе if следующим образом:
 #
 # if string match -q "false" (isPackageInstalled my-package-name)
-#   echo "my-package-name is not installed"
+#   echo "my-package-name не установлен"
 # else
-#   echo "my-package-name is installed"
+#   echo "my-package-name установлен"
 # end
 function isPackageInstalled -a packageName
   set packageIsInstalled (dpkg -l "$packageName")
@@ -385,7 +398,7 @@ function isPackageInstalled -a packageName
   echo $packageIsInstalled
 end
 
-# More info to find if a package is installed: https://askubuntu.com/a/823630/872482
+# Дополнительная информация, чтобы узнать, установлен ли пакет: https://askubuntu.com/a/823630/872482
 if test (uname) = "Linux"
 
   echo "🐒isPackageInstalled does-not-exist:" (isPackageInstalled does-not-exist)
@@ -403,7 +416,7 @@ if test (uname) = "Linux"
 
 end
 
-How to write switch statements for strings #
+## Как писать операторы переключения для строк ##
 
 In order to create switch statements for strings, the test command is used here
 as well (just like it was for if statements). The case statements need to match
