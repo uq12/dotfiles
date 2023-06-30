@@ -210,3 +210,11 @@
 [[layers]]
   name = "lang#go"
 
+# Terminal
+##############
+[[custom_plugins]]
+repo = 'lambdalisue/edita.vim'
+
+[[custom_plugins]]
+repo = 'tyru/empty-prompt.vim'
+depends = ['vital.vim']
