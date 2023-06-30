@@ -6,6 +6,7 @@ function venv
     printf "#!/usr/bin/env bash \nsource .venv/bin/activate" >.envrc
     direnv allow
     curl https://www.toptal.com/developers/gitignore/api/python >.gitignore
+    git init
     # mkdir ./core; touch ./core/__init__.py
     # printf "#!/usr/bin/env python \n# -*- coding: utf-8 -*-\n\nfrom rich import print\nimport requests" > ./core/core.py
     # printf "#!/usr/bin/env python \n# -*- coding: utf-8 -*-\n\nfrom core.core import *\n\nprint(dir())" > ./main.py
