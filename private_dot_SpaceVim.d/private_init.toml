@@ -114,7 +114,7 @@
 
 [[layers]]
     name = "lang#python"
-    enabled_linters = ['python', 'pylint']
+    enabled_linters = ['python', 'pylint','pyright']
     format_on_save = false
     # enable_typeinfo = true
     python_file_head = [
