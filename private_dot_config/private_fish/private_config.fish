@@ -10,6 +10,16 @@ if test -d ~/.local/bin
     end
 end
 
+status --is-interactive; and source (jump shell fish | psub)
+
+yq shell-completion fish | source
+
+complete -c cheat.sh -xa '(curl -s cheat.sh/:list)'
+
+mcfly init fish | source
+
+direnv hook fish | source
+
 abbr -a -- foo bar
 abbr -a -- rm 'rm -Rf'
 abbr -a -- xx 'chmod +x'
