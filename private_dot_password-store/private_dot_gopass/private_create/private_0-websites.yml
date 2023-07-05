@@ -1,0 +1,21 @@
+---
+priority: 0
+name: "Website login"
+prefix: "websites"
+name_from:
+  - "url"
+  - "username"
+welcome: "🧪 Creating Website login"
+attributes:
+  - name: "url"
+    type: "hostname"
+    prompt: "Website URL"
+    min: 1
+    max: 255
+  - name: "username"
+    type: "string"
+    prompt: "Username"
+    min: 1
+  - name: "password"
+    type: "password"
+    prompt: "Password for the Website"
