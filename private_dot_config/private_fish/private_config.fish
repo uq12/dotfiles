@@ -1,3 +1,9 @@
+# Применить .profile: используйте это, чтобы поместить совместимый с рыбой материал .profile в
+if test -f ~/.fish_profile
+    source ~/.fish_profile
+end
+
+
 abbr -a -- foo bar
 abbr -a -- rm 'rm -Rf'
 abbr -a -- xx 'chmod +x'
