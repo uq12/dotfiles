@@ -1,0 +1,25 @@
+---
+priority: 1
+name: "PIN Code (numerical)"
+prefix: "pin"
+name_from:
+  - "authority"
+  - "application"
+welcome: "🧪 Creating numerical PIN"
+attributes:
+  - name: "authority"
+    type: "string"
+    prompt: "Authority"
+    min: 1
+  - name: "application"
+    type: "string"
+    prompt: "Entity"
+    min: 1
+  - name: "password"
+    type: "password"
+    prompt: "Pin"
+    charset: "0123456789"
+    min: 1
+    max: 64
+  - name: "comment"
+    type: "string"
