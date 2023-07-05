@@ -3,6 +3,12 @@ if test -f ~/.fish_profile
     source ~/.fish_profile
 end
 
+# Добавляем ~/.local/bin в PATH
+if test -d ~/.local/bin
+    if not contains -- ~/.local/bin $PATH
+        set -p PATH ~/.local/bin
+    end
+end
 
 abbr -a -- foo bar
 abbr -a -- rm 'rm -Rf'
