@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-#
-exec w3m 'https://wiki.archlinux.org/installation_guide'
-
-

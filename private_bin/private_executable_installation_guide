@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/env bash
+#
+exec w3m 'https://wiki.archlinux.org/title/installation_guide'
+
+
