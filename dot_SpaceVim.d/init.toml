@@ -32,5 +32,27 @@ auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
 name = 'shell'
-default_position = 'top'
-default_height = 30
+default_position = 'bottom'
+# default_position = 'top'
+default_height = 100
+
+[[custom_plugins]]
+    repo = 'abra/vim-obsidian'
+    merged = false
+
+[[custom_plugins]]
+    repo = 'epwalsh/obsidian.nvim'
+    merged = false    
+
+[[custom_plugins]]
+    repo = 'VincentCordobes/vim-translate'
+    merged = false
+
+[[custom_plugins]]
+    repo = 'alker0/chezmoi.vim'
+    merged = false
+
+[[custom_plugins]]
+    repo = 'dbeniamine/cheat.sh-vim'
+    merged = false
+ 
