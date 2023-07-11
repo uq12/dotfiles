@@ -4,7 +4,7 @@
 `--guess-repo-url=false`
 
 ```sh
-chezmoi init uq12 --branch=arch --ssh
+chezmoi init uq12 --branch=manjaro --ssh
 ```
 
 
