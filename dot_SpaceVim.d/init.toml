@@ -58,3 +58,5 @@ default_height = 100
     repo = 'dbeniamine/cheat.sh-vim'
     merged = false
  
+[[layers]]
+name = "lang#python"
