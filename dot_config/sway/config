@@ -13,20 +13,20 @@ include $theme/definitions
 # глобальные переменные
 include /etc/sway/definitions
 
-# user variables
+# пользовательские переменные
 include $HOME/.config/sway/definitions.d/*.conf
 
 include /etc/sway/inputs/*
 include /etc/sway/outputs/*
 
-# enable modes
+# включить режимы
 include /etc/sway/modes/*
 
-# only enable this if every app you use is compatible with wayland
+# включите это только в том случае, если каждое используемое вами приложение совместимо с wayland
 # xwayland disable
 
-# include additional configs e.g. to autostart applications
+# включить дополнительные конфигурации, например. для автозапуска приложений
 include /etc/sway/config.d/*
 
-# user config
+# конфиг пользователя
 include $HOME/.config/sway/config.d/*.conf
