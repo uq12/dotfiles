@@ -159,6 +159,13 @@ if status --is-interactive && type -q fastfetch
    fastfetch --load-config neofetch
 end
 
+direnv hook fish | source
+
+## Fish поддерживает 3 режима, которые вы можете установить с помощью глобальной переменной окружения 1mdirenv_fish_mode22m:
+
+# set -g direnv_fish_mode eval_on_arrow    # trigger direnv at prompt, and on every arrow-based directory change (default)
+# set -g direnv_fish_mode eval_after_arrow # trigger direnv at prompt, and only after arrow-based directory changes before executing command
+# set -g direnv_fish_mode disable_arrow    # trigger direnv at prompt only, this is similar functionality to the original behavior
 
 abbr -a -- foo bar
 abbr -a -- rm 'rm -Rf'
