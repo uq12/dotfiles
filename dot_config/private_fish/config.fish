@@ -158,6 +158,8 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 if status --is-interactive && type -q fastfetch
    fastfetch --load-config neofetch
 end
+
+
 abbr -a -- foo bar
 abbr -a -- rm 'rm -Rf'
 abbr -a -- xx 'chmod +x'
