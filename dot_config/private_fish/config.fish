@@ -3,6 +3,7 @@
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -x PYTHONSTARTUP ~/.pythonrc
 
 ## Export variable need for qt-theme
 if type "qtile" >> /dev/null 2>&1
@@ -47,6 +48,7 @@ end
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
+
 function __history_previous_command
   switch (commandline -t)
   case "!"
