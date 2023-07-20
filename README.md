@@ -4,7 +4,7 @@
 `--guess-repo-url=false`
 
 ```sh
-chezmoi init uq12 --branch=manjaro --ssh
+chezmoi init uq12 --branch=manjaro --ssh --apply -R
 ```
 
 
@@ -23,3 +23,7 @@ chezmoi init uq12 --branch=manjaro --ssh
 `.chezmoiremove` интерпретируется как шаблон,поэтому вы можете удалять разные
 файлы на разных компьютерах. Отрицательныесовпадения (шаблоны с префиксом a
 !) или цели, перечисленные в `.chezmoiignore`, никогда не будут удалены.
+
+
+ 
+chezmoi update --apply -r
