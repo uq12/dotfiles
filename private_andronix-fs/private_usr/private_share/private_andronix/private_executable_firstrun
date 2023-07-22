@@ -28,21 +28,21 @@ create_oem_install() {
     msg "Установка пароля root..."
     passwd root < $TMPDIR/rootpassword 1> /dev/null 2>&1
     /usr/bin/vncpasswd -f <<<"$ROOTPASSWORD"$'\n'"$ROOTPASSWORD" > /root/.vnc/passwd 
-    msg "Adding user $USER..."
+    msg "Добавление пользователя $USER..."
     useradd -m -G sudo -s /bin/bash -U $(cat $TMPDIR/user) 1> /dev/null 2>&1
-    msg "Setting full name to $FULLNAME..."
+    msg "Установка полного имени на $FULLNAME..."
     chfn -f "$FULLNAME" $(cat $TMPDIR/user) 1> /dev/null 2>&1
-    msg "Setting password for $USER..."
+    msg "Установка пароля для $USER..."
     passwd $(cat $TMPDIR/user) < $TMPDIR/password 1> /dev/null 2>&1
     /usr/bin/vncpasswd -f <<<"$PASSWORD"$'\n'"$PASSWORD" > /home/$USER/.vnc/passwd 
     sed -i "/^root/a $USER ALL=(ALL) ALL" /etc/sudoers
-    msg "Applying system settings..."
+    msg "Применение системных настроек..."
     systemctl disable systemd-resolved.service 1> /dev/null 2>&1
     
-    msg "Cleaning install for unwanted files..."
+    msg "Очистка установки от нежелательных файлов..."
     rm -rf /var/log/*
     
-    # Remove temp files on host
+    # Удалить временные файлы на хосте
     rm -rf $TMPDIR/user $TMPDIR/password $TMPDIR/rootpassword
 }
 
