@@ -7,7 +7,7 @@ apt install sudo dialog -y
 apt install keyboard-configuration tzdata -y
 #variables
 TMPDIR=/var/tmp
-SWITCH=/usr/share/andronix/switchuser
+SWITCH=/root/switchuser
 
 # Functions
 msg() {
@@ -184,10 +184,10 @@ esac
 create_oem_install
 
 msg "Configuration complete. Cleaning up..."
-# Here we export the DISPLAY variable for all know users 
+# Здесь мы экспортируем переменную DISPLAY для всех известных пользователей 
 echo "export DISPLAY=:1" >> /root/.bashrc && echo "export DISPLAY=:1" >> /home/$USER/.profile
 touch /home/$USER/.hushlogin
-# Here we overwrite .bash_login to drop the oem first run and the hack to redirect the user after the oem intaller has finished.
+# Здесь мы перезаписываем .bash_login, чтобы отказаться от первого запуска oem, и хак, чтобы перенаправить пользователя после завершения установки oem.
 echo "exec su - $USER" > $SWITCH 
 echo "$SWITCH; exit" > /root/.bash_profile
 chmod +x $SWITCH
