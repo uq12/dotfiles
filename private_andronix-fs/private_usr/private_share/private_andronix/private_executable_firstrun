@@ -86,41 +86,41 @@ stat=1
 		stat=$?
 	else 
 		clear
-		msg "Password does not match minimum lenght of 6 characters. Restarting OEM script..."
+		msg "Пароль не соответствует минимальной длине 6 символов. Перезапуск сценария OEM..."
 		sleep 5 && exec bash /root/firstrun
 	fi
 fi
 
 if [ ! -z "$PASSWORD" ]
 then
-CONFIRMPASSWORD=$(dialog --clear --title "Andronix Installer" \
-	--insecure --passwordbox "Confirm Password for $USER:" 8 50 \
+CONFIRMPASSWORD=$(dialog --clear --title "Installer" \
+	--insecure --passwordbox "Подтвердите пароль для $USER:" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
 	)
 else 
 	clear
-	msg "Configuration aborted. Restarting OEM script..."
+	msg "Конфигурация прервана. Перезапуск сценария OEM..."
 	sleep 5 && exec bash /root/firstrun
 	#exit 1
 fi
 
 if [[ "$PASSWORD" != "$CONFIRMPASSWORD" ]]; then
     clear
-    msg "User passwords do not match! Restarting OEM script..."
+    msg "Пароли пользователей не совпадают! Перезапуск сценария OEM..."
     sleep 5 && exec bash /root/firstrun
     #exit 1
 fi
 
 if [ ! -z "$CONFIRMPASSWORD" ]
 then
-ROOTPASSWORD=$(dialog --clear --title "Finish Andronix Install" \
+ROOTPASSWORD=$(dialog --clear --title "Finish Install" \
     --insecure \
-    --passwordbox "Enter Root Password (at least 6 characters):" 8 50 \
+    --passwordbox "Введите пароль root (не менее 6 символов):" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
 	)
 else 
 	clear
-	msg "Configuration aborted. Restarting OEM script..."
+	msg "Конфигурация прервана. Перезапуск сценария OEM..."
 	sleep 5 && exec bash /root/firstrun
 	#exit 1
 fi
@@ -133,35 +133,35 @@ stat=1
 		stat=$?
 	else 
 		clear
-		msg "Password does not match minimum lenght of 6 characters. Restarting OEM script..."
+		msg "Пароль не соответствует минимальной длине 6 символов. Перезапуск сценария OEM..."
 		sleep 5 && exec bash /root/firstrun
 	fi
 fi
 
 if [ ! -z "$ROOTPASSWORD" ]
 then
-CONFIRMROOTPASSWORD=$(dialog --clear --title "Andronix Installer" \
-	--insecure --passwordbox "Confirm Root Password:" 8 50 \
+CONFIRMROOTPASSWORD=$(dialog --clear --title "Installer" \
+	--insecure --passwordbox "Подтвердите пароль root:" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
 	)
 else 
 	clear
-	msg "Configuration aborted. Restarting OEM script..."
+	msg "Конфигурация прервана. Перезапуск сценария OEM..."
 	sleep 5 && exec bash /root/firstrun
 	#exit 1
 fi
 
 if [[ "$ROOTPASSWORD" != "$CONFIRMROOTPASSWORD" ]]; then
     clear
-    msg "Root passwords do not match! Restarting OEM script..."
+    msg "Пароли root не совпадают! Перезапуск сценария OEM..."
     sleep 5 && exec bash /root/firstrun
     #exit 1
 fi
 
 if [ ! -z "$CONFIRMROOTPASSWORD" ]
 then
-dialog --clear --title "Finish Andronix Install" \
-    --yesno "Is the below information correct:
+dialog --clear --title "Finish Install" \
+    --yesno "Верна ли приведенная ниже информация:
     Username = $USER
     Full Name for $USER = $FULLNAME
     Password for $USER = $PASSWORD
@@ -169,21 +169,21 @@ dialog --clear --title "Finish Andronix Install" \
     3>&1 1>&2 2>&3 3>&-
 else
     clear
-    msg "Configuration aborted. Restarting OEM script..."
+    msg "Конфигурация прервана. Перезапуск сценария OEM..."
     sleep 5 && exec bash /root/firstrun
     #exit 1
 fi
 
 response=$?
 case $response in
-   0) clear; msg "Proceeding....";;
-   1) clear; msg "Configuration aborted. Restarting OEM script..."; sleep 5 && exec bash /root/firstrun;;
-   255) clear; msg "Configuration aborted. Restarting OEM script..."; sleep 5 && exec bash /root/firstrun;;
+   0) clear; msg "Выполнение....";;
+   1) clear; msg "Конфигурация прервана. Перезапуск сценария OEM..."; sleep 5 && exec bash /root/firstrun;;
+   255) clear; msg "Конфигурация прервана. Перезапуск сценария OEM..."; sleep 5 && exec bash /root/firstrun;;
 esac
 
 create_oem_install
 
-msg "Configuration complete. Cleaning up..."
+msg "Конфигурация завершена. Убираться..."
 # Здесь мы экспортируем переменную DISPLAY для всех известных пользователей 
 echo "export DISPLAY=:1" >> /root/.bashrc && echo "export DISPLAY=:1" >> /home/$USER/.profile
 touch /home/$USER/.hushlogin
@@ -195,6 +195,6 @@ if [ -e /etc/ssh/sshd_config ]
 then
 	sed -i s/"PermitRootLogin yes"/"#PermitRootLogin prohibit-password"/g /etc/ssh/sshd_config
 fi
-msg "You can start using your newly installed Ubuntu - Andronix Edition..."
-# Replace the current activity with a new shell for the user
+msg "Вы можете начать использовать только что установленную Ubuntu - Edition..."
+# Заменить текущую активность новой оболочкой для пользователя
 exec su - $USER
