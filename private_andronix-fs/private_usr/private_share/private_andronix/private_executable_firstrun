@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# suppress dmesg output while the script is running
+# подавляем вывод dmesg во время работы скрипта
 # echo 1 > /proc/sys/kernel/printk
 
 apt install sudo dialog -y
@@ -25,7 +25,7 @@ create_oem_install() {
     echo "$PASSWORD" >> $TMPDIR/password
     echo "$ROOTPASSWORD" >> $TMPDIR/rootpassword
     echo "$ROOTPASSWORD" >> $TMPDIR/rootpassword
-    msg "Setting root password..."
+    msg "Установка пароля root..."
     passwd root < $TMPDIR/rootpassword 1> /dev/null 2>&1
     /usr/bin/vncpasswd -f <<<"$ROOTPASSWORD"$'\n'"$ROOTPASSWORD" > /root/.vnc/passwd 
     msg "Adding user $USER..."
