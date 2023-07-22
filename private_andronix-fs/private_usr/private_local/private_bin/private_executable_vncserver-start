@@ -1,0 +1,52 @@
+#!/bin/bash
+
+export USER=$(whoami)
+HEIGHT=0
+WIDTH=0
+CHOICE_HEIGHT=5
+BACKTITLE="Выбор разрешения AndroNix vncserver"
+TITLE="vncserver-start"
+MENU="Выберите один из следующих вариантов:"
+export PORT=1
+
+OPTIONS=(1 "Запустите vncserver с автоматическим определением/динамическим разрешением"
+         2 "Запустите vncserver с разрешением QHD"
+         3 "Запустите vncserver с разрешением FHD"
+         4 "Запустите vncserver с разрешением HD-ready"
+         5 "Запустите vncserver с пользовательским разрешением и портом")
+
+CHOICE=$(dialog --clear \
+                --backtitle "$BACKTITLE" \
+                --title "$TITLE" \
+                --menu "$MENU" \
+                $HEIGHT $WIDTH $CHOICE_HEIGHT \
+                "${OPTIONS[@]}" \
+                2>&1 >/dev/tty)
+
+clear
+case $CHOICE in
+        1)
+            echo "Вы выбрали динамическое разрешение"
+            GEO="" vnc
+            ;;
+        2)
+            echo "Вы выбрали разрешение QHD"
+            GEO="-geometry 2560x1440" vnc
+            ;;
+        3)
+            echo "Вы выбрали разрешение Full HD"
+            GEO="-geometry 1920x1080" vnc
+            ;;
+        4)
+            echo "Вы выбрали разрешение HD-ready"
+            GEO="-geometry 1280x720" vnc
+            ;;
+        5)
+            echo "Вы решили вручную указать разрешение/порт"
+            echo "Введите собственное разрешение в формате WIDTHxHEIGHT, т.е. 1920x1200."
+            read custom
+            echo "Введите свой собственный порт, т.е. 2"
+            read port
+            GEO="-geometry $custom" PORT=$port vnc 
+            ;;
+esac
