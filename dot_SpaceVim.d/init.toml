@@ -60,3 +60,6 @@ default_height = 100
  
 [[layers]]
 name = "lang#python"
+
+[[layers]]
+  name = "sudo"
