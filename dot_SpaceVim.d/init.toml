@@ -25,6 +25,7 @@
     buffer_index_type = 4
     enable_tabline_filetype_icon = true
     enable_statusline_mode = false
+    guifont = "SourceCodePro Nerd Font Mono:h11"
 
 # Enable autocomplete layer
 [[layers]]
