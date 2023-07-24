@@ -24,3 +24,4 @@ abbr -a -- pt 'ptpython --vi --dark-bg'
 
 # tutor
 abbr -a --position anywhere --function last_history_item -- !!
+abbr -a --regex .+\\.txt --function vim_edit -- vim_edit_texts
