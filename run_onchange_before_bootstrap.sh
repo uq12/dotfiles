@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 ##
-echo Выполняется после установки файлов
+echo 'Выполняется до установки файлов'
 
 # for i in awk basename bzip2 cat chmod cp curl cut du find grep gzip # head id mkdir proot rm sed tar xargs xz wget2; do
 # if [ -z  ]; then
