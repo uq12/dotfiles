@@ -10,3 +10,4 @@ if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
 fi
 
 eval "$(direnv hook zsh)"
+source /usr/share/nvm/init-nvm.sh
