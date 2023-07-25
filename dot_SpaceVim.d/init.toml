@@ -37,7 +37,8 @@ auto_completion_tab_key_behavior = "smart"
 name = 'shell'
 default_position = 'bottom'
 # default_position = 'top'
-default_height = 100
+default_height = 30
+default_shell = 'fish'
 
 [[custom_plugins]]
     repo = 'abra/vim-obsidian'
@@ -73,4 +74,15 @@ name = "lang#python"
   git_plugin = 'gita'
   git_diff_position = 'vsplit'
 
+[[layers]]
+  name = 'telescope'
+
+[[layers]]
+  name = 'treesitter'
+
+[[layers]]
+  name = 'vim'
+
+[[layers]]
+  name = 'tools#mpv'
 
