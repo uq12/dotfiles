@@ -64,3 +64,13 @@ name = "lang#python"
 
 [[layers]]
   name = "sudo"
+
+[[layers]]
+  name = 'fzf'
+
+[[layers]]
+  name = 'git'
+  git_plugin = 'gita'
+  git_diff_position = 'vsplit'
+
+
