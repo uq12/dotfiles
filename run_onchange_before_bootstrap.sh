@@ -13,7 +13,7 @@ echo 'Выполняется до установки файлов'
 # unset i
 
 # for pkg in head id mkdir proot rm sed tar xargs xz wget2 head id mkdir proot rm sed tar xargs xz wget2
-for pkg in exa bat direnv starship xorg-mkfontscale
+for pkg in exa bat direnv starship xorg-mkfontscale fd
     if [ -z  ]
         echo
         echo Утилита $pkg не установлена. Невозможно продолжaть.
