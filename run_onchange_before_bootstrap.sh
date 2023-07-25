@@ -21,3 +21,7 @@ for pkg in exa bat direnv starship xorg-mkfontscale fd
 	sudo pacman -S --noconfirm $pkg
     end
 end 
+
+if command -v rustup
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+end
