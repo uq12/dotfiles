@@ -1,10 +1,10 @@
-# Arch Linux
+# Arch Linux (garuda)
 
 Чтобы отключить угадывание URL-адреса репозитория git, передайте параметр
 `--guess-repo-url=false`
 
 ```sh
-chezmoi init uq12 --branch=arch --ssh
+chezmoi init uq12 --branch=garuda --ssh
 ```
 
 
