@@ -4,5 +4,6 @@ unset DBUS_SESSION_BUS_ADDRESS
 
 xrdb $HOME/.Xresources
 ##mate-session
-gnome-session
+#gnome-session
+startxfce4
 x-window-manager &
