@@ -1,4 +1,4 @@
-# Arch Linux (garuda)
+# Ubuntu Linux (server)
 
 Чтобы отключить угадывание URL-адреса репозитория git, передайте параметр
 `--guess-repo-url=false`
@@ -8,7 +8,7 @@ chezmoi init uq12 --branch=ubuntu --ssh
 ```
 
 ```
-sh -c "$(curl -fsLS git.io/chezmoi)" -- init --branch=ubuntu --ssh --apply
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init uq12 --branch=ubuntu --apply 
 ```
 
 
