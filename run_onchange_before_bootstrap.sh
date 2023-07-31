@@ -1,11 +1,18 @@
 #!/bin/sudo bash
 
 #Получить необходимые компоненты
+
+add-apt-repository ppa:ubuntudde-dev/stable
 apt-get update -y
 apt install -y xfce4 xfce4-goodies
 apt-get install -y mate-desktop-environment-core mate-terminal tightvncserver dbus-x11 
 apt-get install xfe -y
 apt install -y tigervnc-standalone-server
+apt install -y ubuntu-mate-desktop
+apt install -y kde-plasma-desktop
+apt install -y ubuntu-budgie-desktop
+apt install -y ubuntudde-dde
+apt install -y dbus-x11
 apt-get clean
 ##Установите необходимые файлы
 #mkdir ~/.vnc
