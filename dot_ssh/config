@@ -1,0 +1,7 @@
+Host termux
+	HostName 100.72.84.30
+	Port 8022
+
+Host yandex
+  HostName 158.160.78.36
+  User zzz
