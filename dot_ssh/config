@@ -5,3 +5,7 @@ Host termux
 Host yandex
   HostName 158.160.78.36
   User zzz
+
+Host bg-root
+  HostName 31.129.100.137
+  User root 
