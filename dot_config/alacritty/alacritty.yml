@@ -1,0 +1,125 @@
+# Garuda Linux configuration for Alacritty
+env:
+  TERM: xterm-256color
+  WINIT_X11_SCALE_FACTOR: "1.66"
+    
+window:
+  dimensions:
+    columns: 100
+    lines: 30
+  dynamic_padding: true
+  decorations: full
+  title: Alacritty@Garuda
+  opacity: 1
+  class:
+    instance: Alacritty
+    general: Alacritty
+  gtk_theme_variant: dark
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+# font:
+  # size: 10
+  # normal:
+    # family: Sauce Code Pro Nerd Font Complete
+  # bold:
+    # family:  Sauce Code Pro Nerd Font Complete
+  # italic:
+    # family:  Sauce Code Pro Nerd Font Complete
+  # bold_italic:
+    # family:  Sauce Code Pro Nerd Font Complete
+    # size: 10.0
+
+font:
+  size: 10
+  normal:
+    family: monospace
+    style: Regular
+  bold:
+    family: monospace
+    style: Bold
+  italic:
+    family: monospace
+    style: Italic
+  bold_italic:
+    family: monospace
+    style: Bold Italic
+  size: 11
+
+# font:
+  # normal:
+    # family: FantasqueSansM
+    # style: Regular
+
+  # bold:
+    # family: FantasqueSansM
+    # style: Bold
+
+  # italic:
+    # family: FantasqueSansM
+    # style: Italic
+
+  # bold_italic:
+    # family: FantasqueSansM
+    # style: Bold Italic
+
+  # size: 11
+
+draw_bold_text_with_bright_colors: true
+
+save_to_clipboard: true
+
+window.dynamic_title: true
+
+cursor:
+  style: Underline
+
+live_config_reload: true
+
+shell:
+  program: /usr/bin/fish
+  args:
+    - --login
+
+mouse:
+  hide_when_typing: true
+
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: C,        mods: Control|Shift, action: Copy             }
+  - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: Plus,     mods: Control,       action: IncreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+
+colors:
+  primary:
+    background: '0x0a1124'
+    foreground: '0xeec49a'
+  cursor:
+    text:       '0x0a1124'
+    cursor:     '0xeec49a'
+  normal:
+    black:      '0x0a1124'
+    red:        '0x5F4149'
+    green:      '0xEB3247'
+    yellow:     '0xBC4349'
+    blue:       '0xF35645'
+    magenta:    '0xF6A73B'
+    cyan:       '0xFAD32F'
+    white:      '0xeec49a'
+  bright:
+    black:      '0xa6896b'
+    red:        '0x5F4149'
+    green:      '0xEB3247'
+    yellow:     '0xBC4349'
+    blue:       '0xF35645'
+    magenta:    '0xF6A73B'
+    cyan:       '0xFAD32F'
+    white:      '0xeec49a'
