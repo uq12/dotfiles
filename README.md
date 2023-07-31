@@ -4,7 +4,11 @@
 `--guess-repo-url=false`
 
 ```sh
-chezmoi init uq12 --branch=garuda --ssh
+chezmoi init uq12 --branch=ubuntu --ssh
+```
+
+```
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init --branch=ubuntu --ssh --apply
 ```
 
 
