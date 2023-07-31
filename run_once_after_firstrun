@@ -153,14 +153,14 @@ fi
 
 if [[ "$ROOTPASSWORD" != "$CONFIRMROOTPASSWORD" ]]; then
     clear
-    msg "Root passwords do not match! Restarting OEM script..."
+    msg "Пароли Root не совпадают! Перезапуск OEM-скрипта..."
     sleep 5 && exec bash /root/firstrun
     #exit 1
 fi
 
 if [ ! -z "$CONFIRMROOTPASSWORD" ]
 then
-dialog --clear --title "Finish Andronix Install" \
+dialog --clear --title "Finish Ubuntu Install" \
     --yesno "Is the below information correct:
     Username = $USER
     Full Name for $USER = $FULLNAME
@@ -183,11 +183,11 @@ esac
 
 create_oem_install
 
-msg "Configuration complete. Cleaning up..."
-# Here we export the DISPLAY variable for all know users 
+msg "Настройка завершена. Уборка..."
+# Здесь мы экспортируем отображаемую переменную для всех известных пользователей
 echo "export DISPLAY=:1" >> /root/.bashrc && echo "export DISPLAY=:1" >> /home/$USER/.profile
 touch /home/$USER/.hushlogin
-# Here we overwrite .bash_login to drop the oem first run and the hack to redirect the user after the oem intaller has finished.
+# Здесь мы перезаписываем .bash_login, чтобы отменить первый запуск oem, и взлом, чтобы перенаправить пользователя после завершения установки oem.
 echo "exec su - $USER" > $SWITCH 
 echo "$SWITCH; exit" > /root/.bash_profile
 chmod +x $SWITCH
@@ -195,6 +195,6 @@ if [ -e /etc/ssh/sshd_config ]
 then
 	sed -i s/"PermitRootLogin yes"/"#PermitRootLogin prohibit-password"/g /etc/ssh/sshd_config
 fi
-msg "You can start using your newly installed Ubuntu - Andronix Edition..."
-# Replace the current activity with a new shell for the user
+msg "Вы можете начать использовать недавно установленную версию Ubuntu"
+# Замените текущее действие новой оболочкой для пользователя
 exec su - $USER
