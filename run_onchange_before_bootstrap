@@ -1,0 +1,3 @@
+#!/bin/sh
+pkg up -y
+pkg i -y direnv mcfly starship which yq
