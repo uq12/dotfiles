@@ -1,11 +1,11 @@
 #!/bin/sudo bash
 
 #Получить необходимые компоненты
-apt-get update
+apt-get update -y
+sudo apt install -y xfce4 xfce4-goodies
 apt-get install mate-desktop-environment-core mate-terminal tightvncserver dbus-x11 -y
 apt-get install xfe -y
 apt-get clean
-apt install -y xfce4 xfce4-goodies
 apt install tigervnc-standalone-server
 ##Установите необходимые файлы
 #mkdir ~/.vnc
@@ -40,7 +40,7 @@ echo " "
 echo " "
 echo " "
 
-echo "export DISPLAY=":1"" >> /etc/profile
-source /etc/profile
+#echo "export DISPLAY=":1"" >> /etc/profile
+#source /etc/profile
 
 #vncserver-start
