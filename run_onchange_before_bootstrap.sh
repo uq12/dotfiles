@@ -2,11 +2,11 @@
 
 #Получить необходимые компоненты
 apt-get update -y
-sudo apt install -y xfce4 xfce4-goodies
-apt-get install mate-desktop-environment-core mate-terminal tightvncserver dbus-x11 -y
+apt install -y xfce4 xfce4-goodies
+apt-get install -y mate-desktop-environment-core mate-terminal tightvncserver dbus-x11 
 apt-get install xfe -y
+apt install -y tigervnc-standalone-server
 apt-get clean
-apt install tigervnc-standalone-server
 ##Установите необходимые файлы
 #mkdir ~/.vnc
 # wget https://raw.githubusercontent.com/EXALAB/AnLinux-Resources/master/Scripts/DesktopEnvironment/Apt/Mate/xstartup --no-check-certificate -P ~/.vnc/
@@ -17,7 +17,21 @@ apt install tigervnc-standalone-server
 #chmod +x /usr/local/bin/vncserver-start
 #chmod +x /usr/local/bin/vncserver-stop
 
-
+apt install -y wireguard
+# sudo wget https://cp.beget.com/shared/e6Jmxu-7HNF6kc5jffrWJ0vU2mOQrGgE/wireguard.conf -O /etc/wireguard/beget.conf
+# Установите необходимые пакеты:
+# Ubuntu/Debian
+# sudo apt install wireguard
+# Fedora
+# sudo dnf install wireguard-tools
+# CentOS 8
+# sudo yum install elrepo-release epel-release && sudo yum install kmod-wireguard wireguard-tools
+# Названия пакетов для других дистрибутивов вы можете найти на официальном сайте.
+# Скачайте конфигурационный файл в директорию Wireguard: sudo wget https://cp.beget.com/shared/e6Jmxu-7HNF6kc5jffrWJ0vU2mOQrGgE/wireguard.conf -O /etc/wireguard/beget.conf.
+# Для подключения VPN используйте команду sudo wg-quick up beget в терминале.
+# Для отключения VPN используйте команду sudo wg-quick down beget в терминале.
+#
+apt update && sudo apt install -y strongswan network-manager-strongswan libcharon-extra-plugins 
 echo " "
 echo "Теперь вы можете запустить vncserver, запустив vncserver-start"
 echo " "
