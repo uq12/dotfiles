@@ -9,3 +9,7 @@ Host yandex
 Host bg-root
   HostName 31.129.100.137
   User root 
+
+Host bg
+  HostName 31.129.100.137
+  User mmm
