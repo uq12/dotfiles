@@ -54,7 +54,7 @@ echo " "
 echo " "
 echo " "
 
-#echo "export DISPLAY=":1"" >> /etc/profile
-#source /etc/profile
+echo "export DISPLAY=":1"" >> /etc/profile
+source /etc/profile
 
-#vncserver-start
+vncserver-start
