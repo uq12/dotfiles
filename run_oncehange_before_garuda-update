@@ -1,0 +1,53 @@
+#!/bin/bash
+set -e
+
+minimal_pacman_conf() {
+    local TEMP_CONF
+    TEMP_CONF=$(mktemp)
+    echo -e "[chaotic-aur]\nServer = https://garudalinux.org/os/garuda-update/backuprepo/x86_64" > "$TEMP_CONF"
+    echo "$TEMP_CONF"
+}
+
+self_update() {
+    # Разрешить самообновление скрипта обновления
+    local EXTRA_PARAMS=()
+    [ "$DATABASE_UPDATED" != "true" ] && $PACMAN -Sy && DATABASE_UPDATED=true || true
+    $INT
+    [ "$DATABASE_UPDATED" != "true" ] && local MIN_PACMAN_CONF && MIN_PACMAN_CONF="$(minimal_pacman_conf)" && $PACMAN --config "$MIN_PACMAN_CONF" -Syy && EXTRA_PARAMS=("--config" "$MIN_PACMAN_CONF") || true
+    $INT
+    $PACMAN -Qu garuda-update &> /dev/null && SNAP_PAC_SKIP=y SKIP_AUTOSNAP= $PACMAN "${EXTRA_PARAMS[@]}" -Sdd garuda-update --needed --noconfirm && GARUDA_UPDATE_SELFUPDATE=1 exec /usr/bin/garuda-update "$@" || true # как есть, так оно и есть
+    # Проверяем, получили ли мы подпись и должны выйти
+    $INT
+}
+
+# Некоторые забавные вещи с рефлектором заставляют его не выходить на sigint, для этого мы настроили свой собственный обработчик sigint
+INT=true
+trap "INT=false" INT
+
+# Поднимитесь один раз и перестаньте постоянно спрашивать пароль
+if [[ $EUID -ne 0 ]]; then
+    exec sudo --preserve-env="SKIP_MIRRORLIST,UPDATE_AUR,PACMAN_EXE,GARUDA_SNAPSHOT_PACMAN,PACMAN_EXTRA_OPTS" /usr/bin/garuda-update "$@"
+    exit 1
+fi
+
+# Запускаем скрипт "Мне лень самому чинить все за один раз"
+if [ "$1" == "remote" ]; then
+    exec bash -c "VERSION=6 . <(wget -qO- https://garudalinux.org/os/garuda-update/remote-update) \"\$@\"" remote-update "${@:2}"
+fi
+
+if [ ! -z "$PACMAN_EXE" ]; then
+    PACMAN="$PACMAN_EXE"
+else
+    PACMAN="pacman"
+fi
+
+export PACMAN
+
+DATABASE_UPDATED=false
+if [ ! -z "$GARUDA_UPDATE_SELFUPDATE" ]; then
+    DATABASE_UPDATED=true
+fi
+
+self_update "$@"
+
+source /usr/lib/garuda/garuda-update/main-update
