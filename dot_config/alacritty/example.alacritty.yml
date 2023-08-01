@@ -1,40 +1,39 @@
 # Конфигурация для Alacritty, улучшенного эмулятора терминала с графическим процессором.
 
-# Import additional configuration files
+# Импорт дополнительных файлов конфигурации
 #
-# Imports are loaded in order, skipping all missing files, with the importing
-# file being loaded last. If a field is already present in a previous import, it
-# will be replaced.
+# Импорты загружаются по порядку, пропуская все отсутствующие файлы, при этом
+# файл импорта# загружается последним. Если поле уже присутствует в предыдущем
+# импорте, оно будет заменено.
 #
-# All imports must either be absolute paths starting with `/`, or paths relative
-# to the user's home directory starting with `~/`.
-#import:
-#  - /path/to/alacritty.yml
+# Все импорты должны быть либо абсолютными путями, начинающимися с `/`, либо
+# путями относительно домашнего каталога пользователя, начинающимися с `~/`.
+#import: - /path/to/alacritty.yml
 
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty itself.
+# Любые элементы в записи `env` ниже будут добавлены как переменные
+# окружения. Некоторые записи могут переопределять переменные, установленные
+# самой alacritty.
 #env:
   # TERM variable
   #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
+  # Это значение используется для установки переменной среды `$TERM` для
+  # каждого экземпляра Alacritty. Если его нет, alacritty проверит локальную
+  # базу данных terminfo и, если она доступна, использует alacritty, в
+  # противном случае используется xterm-256color.
   #TERM: alacritty
 
 #window:
-  # Window dimensions (changes require restart)
+  # Размеры окна (изменения требуют перезагрузки)
   #
-  # Number of lines/columns (not pixels) in the terminal. Both lines and columns
-  # must be non-zero for this to take effect. The number of columns must be at
-  # least `2`, while using a value of `0` for columns and lines will fall back
-  # to the window manager's recommended size
+  # Количество строк/столбцов (не пикселей) в терминале. И строки, и столбцы
+  # должны быть ненулевыми, чтобы это вступило в силу. Количество столбцов
+  # должно быть не менее «2», а использование значения «0» для столбцов и строк
+  # приведет к возврату к рекомендуемому оконным менеджером размеру.
   #dimensions:
   #  columns: 0
   #  lines: 0
 
-  # Window position (changes require restart)
+  # Положение окна (изменения требуют перезагрузки)
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
@@ -42,7 +41,7 @@
   #  x: 0
   #  y: 0
 
-  # Window padding (changes require restart)
+  # Заполнение окна (изменения требуют перезагрузки)
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
@@ -50,7 +49,7 @@
   #  x: 0
   #  y: 0
 
-  # Spread additional padding evenly around the terminal content.
+  # Равномерно распределите дополнительные отступы вокруг содержимого терминалаj
   #dynamic_padding: false
 
   # Window decorations
@@ -465,15 +464,15 @@
 #ipc_socket: true
 
 #mouse:
-  # Click settings
+  # Нажмите настройки
   #
-  # The `double_click` and `triple_click` settings control the time
-  # alacritty should wait for accepting multiple clicks as one double
-  # or triple click.
+  # Настройки `double_click` и `triple_click` контролируют время, в течение
+  # которого alacritty должна ожидать принятия нескольких кликов как одного
+  # двойного или тройного клика.
   #double_click: { threshold: 300 }
   #triple_click: { threshold: 300 }
 
-  # If this is `true`, the cursor is temporarily hidden when typing.
+  # Если это `true`, курсор временно скрывается при наборе текста.
   #hide_when_typing: false
 
 # Hints
