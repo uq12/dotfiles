@@ -11,7 +11,7 @@ if test -d ~/.local/bin
 end
 
 status --is-interactive; and source (jump shell fish | psub)
-jump shell fish | source
+# jump shell fish | source
 
 yq shell-completion fish | source
 
