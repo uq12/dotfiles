@@ -1,5 +1,5 @@
 Host termux
-	HostName 100.72.84.30
+	HostName 192.168.199.44
 	Port 8022
 
 Host yandex
