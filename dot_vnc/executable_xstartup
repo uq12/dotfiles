@@ -6,4 +6,7 @@ xrdb $HOME/.Xresources
 ##mate-session
 #gnome-session
 startxfce4
-x-window-manager &
+#startlxde
+#budgie-desktop
+#startplasma-x11
+#x-window-manager &

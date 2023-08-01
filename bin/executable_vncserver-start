@@ -1,4 +1,4 @@
 #!/bin/sh
 
 #vncserver -geometry 1280x800 -depth 24 -name remote-desktop :1
-vncserver -localhost no -depth 24 -name remote-desktop -geometry 1280x800
+vncserver -localhost no -name remote-desktop -geometry 1280x800
