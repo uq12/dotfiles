@@ -1,7 +1,7 @@
-# If not running interactively, don't do anything
+# Если вы не работаете в интерактивном режиме, ничего не делайте
 [[ $- != *i* ]] && return
 
-# Load starship prompt if starship is installed
+# Загрузить приглашение звездолета, если звездолет установлен
 if  [ -x /usr/bin/starship ]; then
     __main() {
         local major="${BASH_VERSINFO[0]}"
@@ -17,7 +17,7 @@ if  [ -x /usr/bin/starship ]; then
     unset -f __main
 fi
 
-# Advanced command-not-found hook
+# Усовершенствованный хук command-not-found
 source /usr/share/doc/find-the-command/ftc.bash
 
 # Aliases
