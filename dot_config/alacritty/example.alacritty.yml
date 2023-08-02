@@ -477,13 +477,13 @@
 
 # Hints
 #
-# Terminal hints can be used to find text or hyperlink in the visible part of
-# the terminal and pipe it to other applications.
+# Подсказки терминала можно использовать для поиска текста или гиперссылки в
+# видимой части терминала и передачи их другим приложениям.
 #hints:
-  # Keys used for the hint labels.
+# Клавиши, используемые для меток подсказок.
   #alphabet: "jfkdls;ahgurieowpq"
 
-  # List with all available hints
+  # Список со всеми доступными подсказками
   #
   # Each hint must have any of `regex` or `hyperlinks` field and either an
   # `action` or a `command` field. The fields `mouse`, `binding` and
