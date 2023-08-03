@@ -71,7 +71,7 @@ complete -c $PROG -f -n '__fish_gopass_uses_command completion' -a zsh -d 'Subco
 complete -c $PROG -f -n '__fish_gopass_uses_command completion zsh -l yes -d "Всегда отвечайте да на вопросы да/нет"'
 complete -c $PROG -f -n '__fish_gopass_uses_command completion zsh -l clip -d "Скопируйте значение пароля в буфер обмена"'
 complete -c $PROG -f -n '__fish_gopass_uses_command completion zsh -l alsoclip -d "Скопируйте пароль и покажите все"'
-complete -c $PROG -f -n '__fish_gopass_uses_command завершение zsh -l qr -d «Распечатать пароль в виде QR-кода»'
+complete -c $PROG -f -n '__fish_gopass_uses_command completion zsh -l qr -d "Print the password as a QR Code"'
 complete -c $PROG -f -n '__fish_gopass_uses_command completion zsh -l unsafe -d "Display unsafe content (e.g. the password) even if safecontent is enabled"'
 complete -c $PROG -f -n '__fish_gopass_uses_command completion zsh -l password -d "Display only the password. Takes precedence over all other flags."'
 complete -c $PROG -f -n '__fish_gopass_uses_command completion zsh -l revision -d "Show a past revision. Does NOT support RCS specific shortcuts. Use exact revision or -&lt;N&gt; to select the Nth oldest revision of this entry."'
