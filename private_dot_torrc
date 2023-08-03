@@ -15,10 +15,10 @@
 # cat ~/.tor/hidden_ssh/hostname
 # Output should be like this: g3yv3tvqrbow7koz.onion
 
-SOCKSPort 127.0.0.1:9050
-SOCKSPort 127.0.0.1:9052 #
-SOCKSPort 127.0.0.1:9053 #
-SOCKSPort 127.0.0.1:9054 #
+SOCKSPort [::1]:9050
+SOCKSPort [::1]:9052
+SOCKSPort [::1]:9053
+SOCKSPort [::1]:9054
 
 RunAsDaemon 1
 
@@ -39,3 +39,43 @@ HiddenServicePort 22 127.0.0.1:8022
 # ED25519 key fingerprint is SHA256:WGualHEq7SJdvVeXgy8a+btPQCd7uxTeXjlWdHHLwLc.
 # Are you sure you want to continue connecting (yes/no)?
 # Remember, `tor` should be running on both (client/server) sides, otherwise you will get connection errors. You can configure other servers (e.g. Nginx) in the same way as shown in above example for SSH.
+# RunAsDaemon 0
+# AvoidDiskWrites 1
+# AutomapHostsOnResolve 1
+# AutomapHostsSuffixes .exit, .onion
+#ExcludeExitNodes
+# TransPort 9040 IsolateDestAddr IsolateDestPort
+# DNSPort 127.0.0.1:5400
+# DNSPort [::1]:5400
+# SOCKSPort 127.0.0.1:9050 IsolateDestAddr IsolateDestPort
+# SOCKSPort [::1]:9050 IsolateDestAddr IsolateDestPort
+# HardwareAccel 1
+# Schedulers Vanilla
+# Socks5Proxy 127.0.0.1:1080
+# ClientOnly 1
+# ExitPolicy reject *:*
+# ExitPolicy reject6 *:*
+# GeoIPFile /data/user/0/pan.alexander.tordnscrypt.stable/app_data/tor/geoip
+# GeoIPv6File /data/user/0/pan.alexander.tordnscrypt.stable/app_data/tor/geoip6
+# DataDirectory /data/user/0/pan.alexander.tordnscrypt.stable/tor_data
+# VirtualAddrNetwork 10.192.0.0/10
+# VirtualAddrNetworkIPv6 [FC00::]/7
+# Log notice file /data/user/0/pan.alexander.tordnscrypt.stable/logs/Tor.log
+# ConnectionPadding 1
+# ReducedConnectionPadding 1
+#ExcludeNodes
+#ExitNodes
+#EntryNodes
+# StrictNodes 0
+# FascistFirewall 0
+# NewCircuitPeriod 30
+# MaxCircuitDirtiness 600
+# EnforceDistinctSubnets 1
+# HTTPTunnelPort 8118 IsolateDestAddr IsolateDestPort
+# DormantCanceledByStartup 1
+# CircuitsAvailableTimeout 86400
+# Socks5Proxy 127.0.0.1:1080
+# ClientUseIPv4 1
+# ClientUseIPv6 1
+# UseBridges 0
+#
