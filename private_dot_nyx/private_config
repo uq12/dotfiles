@@ -38,7 +38,7 @@ config_order MAN_PAGE_ENTRY, NAME, IS_SET # Заказ опций конфигу
 show_private_options false  # Shows configurations with a '__option' prefix.
 show_virtual_options false  # Shows unsettable tor configurations.
 
-connection_order order  # Order for connections. [6]
+connection_order CATEGORY, IP_ADDRESS, UPTIME # Заказ на подключение. [6]
 resolve_processes true  # Shows processes for SOCKS and CONTROL connections.
 show_addresses true     # Shows addresses of connections.
 
@@ -86,7 +86,7 @@ show_interpreter true   # Shows the control interpreter.
 #
 #     По умолчанию: MAN_PAGE_ENTRY, NAME, IS_SET
 #
-# [6] connection_order is three comma separated values that can include...
+# [6] connection_order это три значения, разделенные запятыми, которые могут включать...
 #
 #       * CATEGORY
 #       * UPTIME
