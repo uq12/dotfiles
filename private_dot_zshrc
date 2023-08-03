@@ -14,7 +14,7 @@ function set_win_title(){
 precmd_functions+=(set_win_title)
 
 
-## Plugins section: Enable fish style features
+## Раздел плагинов: включить функции стиля рыбы
 # Use syntax highlighting
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -36,17 +36,17 @@ source ~/.oh-my-zsh/custom/fzf/completion.zsh
 [[ -e /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh
 
 
-## Options section
-setopt correct                                                  # Auto correct mistakes
-setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
-setopt nocaseglob                                               # Case insensitive globbing
-setopt rcexpandparam                                            # Array expension with parameters
-setopt nocheckjobs                                              # Don't warn about running processes when exiting
-setopt numericglobsort                                          # Sort filenames numerically when it makes sense
+## Раздел опций
+setopt correct                                                  # Автоматическое исправление ошибок
+setopt extendedglob                                             # Расширенный глоббинг. Позволяет использовать регулярные выражения с *
+setopt nocaseglob                                               # Подстановка без учета регистра
+setopt rcexpandparam                                            # Расширение массива с параметрами
+setopt nocheckjobs                                              # Не предупреждать о запущенных процессах при выходе
+setopt numericglobsort                                          # Сортировать имена файлов по номерам, когда это имеет смысл
 setopt nobeep                                                   # No beep
-setopt appendhistory                                            # Immediately append history instead of overwriting
-setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
-setopt autocd                                                   # if only directory path is entered, cd there.
+setopt appendhistory                                            # Немедленно добавить историю вместо перезаписи
+setopt histignorealldups                                        # Если новая команда является дубликатом, удалите старую
+setopt autocd # если введен только путь к каталогу, cd там.
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
@@ -54,7 +54,7 @@ setopt pushdminus
 # Completion.
 autoload -Uz compinit
 compinit
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Завершение табуляции без учета регистра
 zstyle ':completion:*' rehash true                              # automatically find new executables in path 
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
