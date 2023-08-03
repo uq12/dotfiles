@@ -34,7 +34,7 @@ graph_bound max_local       # Bounding for the graph min and max. [4]
 graph_height 7              # Height of the graph.
 max_graph_width 300         # Maximum number of samplings.
 
-config_order order          # Order for tor config options. [5]
+config_order MAN_PAGE_ENTRY, NAME, IS_SET # Заказ опций конфигурации tor. [5]
 show_private_options false  # Shows configurations with a '__option' prefix.
 show_virtual_options false  # Shows unsettable tor configurations.
 
@@ -72,7 +72,7 @@ show_interpreter true   # Shows the control interpreter.
 #       local_max - local maximum (highest value currently on the graph)
 #       tight - local maximum and minimum
 #
-# [5] config_order is three comma separated values that can include...
+# [5] config_order — это три значения, разделенные запятыми, которые могут включать...
 #
 #       * NAME
 #       * VALUE
@@ -84,7 +84,7 @@ show_interpreter true   # Shows the control interpreter.
 #       * MAN_PAGE_ENTRY
 #       * IS_SET
 #
-#     Default is: MAN_PAGE_ENTRY, NAME, IS_SET
+#     По умолчанию: MAN_PAGE_ENTRY, NAME, IS_SET
 #
 # [6] connection_order is three comma separated values that can include...
 #
