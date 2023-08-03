@@ -1,4 +1,4 @@
-#!/usr/bin/env fish
+#!/data/data/com.termux/files/usr/bin/env fish
 set PROG 'gopass'
 
 function __fish_gopass_needs_command
@@ -38,7 +38,7 @@ complete -c $PROG -e
 complete -c $PROG -f -n '__fish_gopass_needs_command' -a "(__fish_gopass_print_entries)"
 complete -c $PROG -f -s c -l clip -r -a "(__fish_gopass_print_entries)"
 complete -c $PROG -f -n '__fish_gopass_needs_command' -a age -d 'Command: age commands'
-complete -c $PROG -f -n '__fish_gopass_uses_command age' -a identities -d 'Subcommand: List identities'
+complete -c $PROG -f -n '__fish_gopass_uses_command age' -a identities -d 'Подкоманда: список идентификаторов'
 complete -c $PROG -f -n '__fish_gopass_uses_command age identities -l yes -d "Всегда отвечайте да на вопросы да/нет"'
 complete -c $PROG -f -n '__fish_gopass_uses_command age identities -l clip -d "Copy the password value into the clipboard"'
 complete -c $PROG -f -n '__fish_gopass_uses_command age identities -l alsoclip -d "Copy the password and show everything"'
