@@ -43,7 +43,7 @@ HiddenServicePort 22 127.0.0.1:8022
 # AvoidDiskWrites 1
 # AutomapHostsOnResolve 1
 # AutomapHostsSuffixes .exit, .onion
-#ExcludeExitNodes
+##ExcludeExitNodes
 # TransPort 9040 IsolateDestAddr IsolateDestPort
 # DNSPort 127.0.0.1:5400
 # DNSPort [::1]:5400
