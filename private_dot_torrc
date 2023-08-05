@@ -79,3 +79,49 @@ HiddenServicePort 22 127.0.0.1:8022
 # ClientUseIPv6 1
 # UseBridges 0
 #
+# RunAsDaemon 0
+  # AvoidDiskWrites 1
+  # AutomapHostsOnResolve 1
+  # AutomapHostsSuffixes .exit, .onion
+# ExcludeExitNodes
+  # TransPort 9040
+  # DNSPort 127.0.0.1:5400
+  # DNSPort [::1]:5400
+  # SOCKSPort 127.0.0.1:9050
+  # SOCKSPort [::1]:9050
+  # HardwareAccel 1
+  # Schedulers Vanilla
+# Socks5Proxy 127.0.0.1:1080
+  # ClientOnly 1
+  # ExitPolicy reject *:*
+  # ExitPolicy reject6 *:*
+  # GeoIPFile /data/user/0/pan.alexander.tordnscrypt.stable/app_data/tor/geoip
+  # GeoIPv6File /data/user/0/pan.alexander.tordnscrypt.stable/app_data/tor/geoip6
+  # DataDirectory /data/user/0/pan.alexander.tordnscrypt.stable/tor_data
+  # VirtualAddrNetworkIPv4 10.192.0.0/10
+  # VirtualAddrNetworkIPv6 [FC00::]/7
+  # Log notice file /data/user/0/pan.alexander.tordnscrypt.stable/logs/Tor.log
+  # ConnectionPadding 1
+  # ReducedConnectionPadding 1
+# ExcludeNodes
+# ExitNodes
+# EntryNodes
+  # StrictNodes 0
+  # FascistFirewall 0
+  # NewCircuitPeriod 30
+  # MaxCircuitDirtiness 600
+  # EnforceDistinctSubnets 1
+  # HTTPTunnelPort 8118
+  # DormantCanceledByStartup 1
+  # CircuitsAvailableTimeout 86400
+  # ClientUseIPv4 1
+  # ClientUseIPv6 1
+UseBridges 1
+ClientTransportPlugin obfs4 exec /data/app/~~AWayPl_g7Vn1LmmxA4p7_Q==/pan.alexander.tordnscrypt.stable-MUruIhOX9Pw0xaLCc8K0pQ==/lib/arm/libobfs4proxy.so
+Bridge obfs4 120.29.217.52:5223 40FE3DB9800272F9CDC76422F8ED7883280EE96D cert=/71PS4l8c/XJ4DIItlH9xMqNvPFg2RUTrHvPlQWh48u5et8h/yyyjCcYphUadDsfBWpaGQ iat-mode=0
+Bridge obfs4 15.235.167.10:9088 418136C9E3F7C8E1A2A60A618D36AE35B99CAF04 cert=iJBmTFTwF8ZpRIckIQukddL1YCYI5MxAe8esxpuQmfy0EXqX2BP8fJ1gWknQrMAR+ii0JA iat-mode=0
+Bridge obfs4 76.150.191.15:64998 3605A1AA3AD7E4E418E9F3C2C72F40DEA6BEA637 cert=oQfwM8t2d6cXcF8xSpqnp4JdGS1QIzz6C/6gGWeTy6CAssIIVbthr1TRlHaTV8HTqEt2Ig iat-mode=0
+Bridge obfs4 5.161.66.77:55441 F3EABDE3937418457B993A03F0B2BFDED55B2CB4 cert=xHA5BH3ch7U3nH7W1NEw9L0lAHs2zc3Uc0z/Od74g8eJ5+O/TEgK7dZKdmJ9FqBDZgptOQ iat-mode=0
+Bridge obfs4 86.119.0.151:25262 CDA13CF52FFF3A70AEFB3A793B16DC2A63406531 cert=veuTKH5BmSqP3Lbashf8DiprMXxenwTryXRVNKMqMJ+vL2lyC3rzQQQlVwaGgjv6UUU/QA iat-mode=0
+Bridge obfs4 90.127.32.238:42024 DE90DE5C6EC2435856CBFE39A0C6E16BC737412E cert=pv4sHJlCcHNiI6gFeAduNdnshJm2J/zPGvJzQ/CvTGfBZAByjzFeYJtpOS1iSIuKRmsdDA iat-mode=0
+
