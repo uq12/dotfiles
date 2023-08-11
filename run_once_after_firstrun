@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # подавляем вывод dmesg во время работы скрипта
 # echo 1 > /proc/sys/kernel/printk
@@ -49,17 +49,18 @@ create_oem_install() {
 
 dpkg-reconfigure keyboard-configuration
 dpkg-reconfigure tzdata
+dpkg-reconfigure locales
 
 
 # Использование диалогового окна для запроса пользовательского ввода для переменных
-USER=$(dialog --clear --title "Завершить установку Andronix" \
+USER=$(dialog --clear --title "Завершить установку " \
 	--inputbox "Введите имя пользователя:
 (Имена пользователей могут быть только строчными)" 8 50 \
         3>&1 1>&2 2>&3 3>&-)
 
 if [ ! -z "$USER" ]
 then
-FULLNAME=$(dialog --clear --title "Finish Andronix Install" \
+FULLNAME=$(dialog --clear --title "Finish  Install" \
     --inputbox "Введите полное имя для $USER:" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
 	)
@@ -67,7 +68,7 @@ fi
 
 if [ ! -z "$FULLNAME" ]
 then
-PASSWORD=$(dialog --clear --title "Finish Andronix Install" \
+PASSWORD=$(dialog --clear --title "Finish  Install" \
     --insecure \
     --passwordbox "Enter Password for $USER (at least 6 characters):" 8 50 \
         3>&1 1>&2 2>&3 3>&- )
@@ -93,7 +94,7 @@ fi
 
 if [ ! -z "$PASSWORD" ]
 then
-CONFIRMPASSWORD=$(dialog --clear --title "Andronix Installer" \
+CONFIRMPASSWORD=$(dialog --clear --title " Installer" \
 	--insecure --passwordbox "Confirm Password for $USER:" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
 	)
@@ -113,7 +114,7 @@ fi
 
 if [ ! -z "$CONFIRMPASSWORD" ]
 then
-ROOTPASSWORD=$(dialog --clear --title "Finish Andronix Install" \
+ROOTPASSWORD=$(dialog --clear --title "Finish  Install" \
     --insecure \
     --passwordbox "Enter Root Password (at least 6 characters):" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
@@ -140,7 +141,7 @@ fi
 
 if [ ! -z "$ROOTPASSWORD" ]
 then
-CONFIRMROOTPASSWORD=$(dialog --clear --title "Andronix Installer" \
+CONFIRMROOTPASSWORD=$(dialog --clear --title " Installer" \
 	--insecure --passwordbox "Confirm Root Password:" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
 	)
