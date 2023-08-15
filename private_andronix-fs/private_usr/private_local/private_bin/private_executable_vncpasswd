@@ -1,5 +1,5 @@
 #!/bin/bash
-read -sp 'Provide a new VNC password: ' PASSWORD
+read -sp 'Укажите новый пароль VNC:' PASSWORD
 /usr/bin/vncpasswd -f <<<"$PASSWORD"$'\n'"$PASSWORD" > $HOME/.vnc/passwd
 echo ""
-echo "Password for VNC changed"
+echo "Пароль для VNC изменен"

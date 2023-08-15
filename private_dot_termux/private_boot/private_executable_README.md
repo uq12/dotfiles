@@ -1,29 +1,28 @@
 I# AL-SULTAN SHELL - BOOT SERVICE EXECUTOR
 
 ## About
-This Folder Is Read By `SHELL BOOT EXECUTOR`
-For Running All Scripts On It Upon Android
-System Restart.
+
+Эта папка читается «SHELL BOOT EXECUTOR» для запуска всех сценариев в ней после
+перезагрузки системы Android.
 
 ## How?
-When Android Device Is Restarted The Shell
-Boot Service Starts And Scan For All Files
-On Path `~/.boot`. And Start Running Those
-Scripts On A Separate Job Schedule.
+
+Когда устройство Android перезапускается, служба ShellBoot запускается и
+сканирует все файлы по пути `~/.boot`. И начните запускать эти сценарии в
+отдельном расписании заданий.
 
 ## Instructions
-Put Your Script Under Path `~/.boot` And 
-Shell Will Run It When System Restarts.
-Please Note That SubFolders Will Not Be
-Scanned, So Put Your Script On Top Folder.
-Also Note That Scripts Are Scheduled To Run
-Based On Script Name. i.e. Alphabetically.
+
+Поместите свой сценарий в путь `~/.boot`, и оболочка запустит его при
+перезагрузке системы. Обратите внимание, что подпапки не будут сканироваться,
+поэтому поместите свой сценарий в верхнюю папку. Также обратите внимание, что
+сценарии запланированы для запуска на основе имени сценария. то есть по
+алфавиту.
 
 ## Sample
-Simply; To Start `http server` After System
-Restarts, Create A File Named For Example
-`run-httpd.sh` On The Folder `~/.boot`
-With The Below Content:
+
+Просто; Чтобы запустить `http server` после перезагрузки системы, создайте файл
+с именем, например, `run-httpd.sh`, в папке `~/.boot` со следующим содержимым:
 
 ```console
 #!/data/data/alsultan.shell/rootfs/usr/bin/sh
@@ -31,7 +30,9 @@ httpd
 ```
 
 ## Logging
-Log Files For StartUp Scripts Are Written To Folder
+
+Файлы журнала для сценариев запуска записываются в папку
+
 ````console
 /data/data/alsultan.shell/rootfs/usr/var/log/boot
 ````
