@@ -51,3 +51,6 @@ abbr -a --set-cursor=! -- goo google\ --lang=ru\ --stop=10\ \'!\'
 abbr -a --set-cursor=! -- gr grep\ --recursive\ --line-number\ --binary-files=without-match\ \'!\'
 abbr -a -- pt 'ptpython --vi --dark-bg'
 abbr -a --set-cursor=! -- sms termux-sms-send\ -n\ +79628611711\ \'!\'
+
+
+source (/data/data/com.termux/files/usr/bin/starship init fish --print-full-init | psub)
