@@ -32,12 +32,12 @@ hist_length = 100001
 # Soft tab size (default: 4, see pep-8):
 tab_length = 2
 
-# Color schemes should be put in $XDG_CONFIG_HOME/bpython/ e.g. to use the theme
+# Цветовые схемы должны быть помещены в $XDG_CONFIG_HOME/bpython/, например использовать тему
 # $XDG_CONFIG_HOME/bpython/foo.theme set color_scheme = foo. Leave blank or set
 # to "default" to use the default theme
 # color_scheme = default
 
-# External editor to use for editing the current line, block, or full history
+# Внешний редактор для редактирования текущей строки, блока или всей истории
 # Examples: vi (vim)
 #          code --wait (VS Code) - in VS Code use the command palette to:
 #                Shell Command: Install 'code' command in PATH
