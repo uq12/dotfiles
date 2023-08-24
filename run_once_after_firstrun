@@ -28,7 +28,7 @@ create_oem_install() {
     msg "Установка пароля root..."
     passwd root < $TMPDIR/rootpassword 1> /dev/null 2>&1
     /usr/bin/vncpasswd -f <<<"$ROOTPASSWORD"$'\n'"$ROOTPASSWORD" > /root/.vnc/passwd 
-    msg "Adding user $USER..."
+    msg "Добавление пользователя $USER..."
     useradd -m -G sudo -s /bin/bash -U $(cat $TMPDIR/user) 1> /dev/null 2>&1
     msg "Установка полного имени на $FULLNAME..."
     chfn -f "$FULLNAME" $(cat $TMPDIR/user) 1> /dev/null 2>&1
@@ -70,11 +70,11 @@ if [ ! -z "$FULLNAME" ]
 then
 PASSWORD=$(dialog --clear --title "Finish  Install" \
     --insecure \
-    --passwordbox "Enter Password for $USER (at least 6 characters):" 8 50 \
+    --passwordbox "Введите пароль для $USER (минимум 6 символов):" 8 50 \
         3>&1 1>&2 2>&3 3>&- )
 else 
 	clear
-	msg "Configuration aborted. Restarting OEM script..."
+	msg "Конфигурация прервана. Перезапуск OEM-скрипта..."
 	sleep 5 && exec bash /root/firstrun
 	#exit 1
 fi
@@ -87,7 +87,7 @@ stat=1
 		stat=$?
 	else 
 		clear
-		msg "Password does not match minimum lenght of 6 characters. Restarting OEM script..."
+		msg "Пароль не соответствует минимальной длине в 6 символов. Перезапуск OEM-скрипта..."
 		sleep 5 && exec bash /root/firstrun
 	fi
 fi
@@ -95,19 +95,19 @@ fi
 if [ ! -z "$PASSWORD" ]
 then
 CONFIRMPASSWORD=$(dialog --clear --title " Installer" \
-	--insecure --passwordbox "Confirm Password for $USER:" 8 50 \
+	--insecure --passwordbox "Подтвердите пароль для $USER:" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
 	)
 else 
 	clear
-	msg "Configuration aborted. Restarting OEM script..."
+	msg "Конфигурация прервана. Перезапуск OEM-скрипта..."
 	sleep 5 && exec bash /root/firstrun
 	#exit 1
 fi
 
 if [[ "$PASSWORD" != "$CONFIRMPASSWORD" ]]; then
     clear
-    msg "User passwords do not match! Restarting OEM script..."
+    msg "Пароли пользователей не совпадают! Перезапуск OEM-скрипта..."
     sleep 5 && exec bash /root/firstrun
     #exit 1
 fi
@@ -116,12 +116,12 @@ if [ ! -z "$CONFIRMPASSWORD" ]
 then
 ROOTPASSWORD=$(dialog --clear --title "Finish  Install" \
     --insecure \
-    --passwordbox "Enter Root Password (at least 6 characters):" 8 50 \
+    --passwordbox "Введите пароль root (не менее 6 символов):" 8 50 \
         3>&1 1>&2 2>&3 3>&- \
 	)
 else 
 	clear
-	msg "Configuration aborted. Restarting OEM script..."
+	msg "Конфигурация прервана. Перезапуск OEM-скрипта..."
 	sleep 5 && exec bash /root/firstrun
 	#exit 1
 fi
