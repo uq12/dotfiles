@@ -3,3 +3,5 @@
 echo 'hel'
 
 fish_update_completions
+
+curl -sLf https://spacevim.org/install.sh | bash

@@ -1,3 +1,7 @@
 #!/bin/sh
 pkg up -y
-pkg i -y direnv mcfly starship which yq jump fish openssh bat exa iproute2 python gh
+pkg i -y x11-repo
+pkg update -y
+pkg i -y direnv mcfly starship which yq jump fish openssh bat exa iproute2 python gh  xorg-mkfontscale
+
+
