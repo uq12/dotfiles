@@ -27,3 +27,9 @@ sh -c "$(curl -fsLS git.io/chezmoi)" -- init uq12 --branch=ubuntu --apply
 `.chezmoiremove` интерпретируется как шаблон,поэтому вы можете удалять разные
 файлы на разных компьютерах. Отрицательныесовпадения (шаблоны с префиксом a
 !) или цели, перечисленные в `.chezmoiignore`, никогда не будут удалены.
+
+
+Describe the solution you'd like
+To add --no-scripts and --re-run-scripts to chezmoi apply, which would respectively apply but not run scripts, and apply and re-run the scripts already marked as ran.
+
+It would be also good if we could have those options available on chezmoi init --apply as well.
