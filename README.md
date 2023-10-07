@@ -8,7 +8,7 @@ chezmoi init uq12 --branch=ubuntu --ssh
 ```
 
 ```
-sh -c "$(curl -fsLS git.io/chezmoi)" -- init uq12 --branch=ubuntu --apply 
+sh -c "$(curl -fsLS git.io/chezmoi)" -- init uq12 --branch=ubuntu --apply --one-shot
 ```
 
 
